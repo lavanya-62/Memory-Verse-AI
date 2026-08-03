@@ -1,0 +1,159 @@
+.analysis-page{
+    padding:30px;
+    animation:fadeIn .5s ease;
+}
+
+.analysis-page h1{
+    color:#2563eb;
+    text-align:center;
+    font-size:36px;
+    font-weight:700;
+    margin-bottom:35px;
+}
+
+.analysis-top{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:35px;
+}
+
+.analysis-top select{
+    width:420px;
+    padding:14px 18px;
+    border:2px solid #dbeafe;
+    border-radius:12px;
+    font-size:16px;
+    background:#fff;
+    outline:none;
+    transition:.3s;
+}
+
+.analysis-top select:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 10px rgba(37,99,235,.2);
+}
+
+.analysis-top button{
+    padding:14px 30px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#2563eb,#4f46e5);
+    color:#fff;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.analysis-top button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 25px rgba(37,99,235,.3);
+}
+
+.analysis-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+    gap:25px;
+}
+
+.analysis-card{
+    background:#fff;
+    border-radius:18px;
+    padding:22px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transition:.3s;
+    border-top:5px solid #2563eb;
+}
+
+.analysis-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 18px 35px rgba(0,0,0,.15);
+}
+
+.analysis-card h2{
+    color:#2563eb;
+    margin-bottom:20px;
+}
+
+.analysis-card h3{
+    color:#1e3a8a;
+    margin:18px 0 12px;
+    font-size:20px;
+}
+
+.analysis-card p{
+    color:#555;
+    line-height:1.8;
+}
+
+.analysis-card ul{
+    margin-top:10px;
+    padding-left:20px;
+}
+
+.analysis-card li{
+    margin:8px 0;
+    color:#444;
+}
+
+.chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:10px;
+}
+
+.chip{
+    background:#eff6ff;
+    color:#2563eb;
+    padding:8px 14px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:600;
+}
+
+.loading{
+    text-align:center;
+    color:#2563eb;
+    font-size:22px;
+    font-weight:bold;
+    margin-top:50px;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@media(max-width:768px){
+
+.analysis-page{
+    padding:20px;
+}
+
+.analysis-page h1{
+    font-size:28px;
+}
+
+.analysis-top{
+    flex-direction:column;
+}
+
+.analysis-top select,
+.analysis-top button{
+    width:100%;
+}
+
+.analysis-grid{
+    grid-template-columns:1fr;
+}
+
+}
