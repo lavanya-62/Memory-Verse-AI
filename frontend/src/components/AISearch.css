@@ -1,90 +1,40 @@
-import { useState } from "react";
-import axios from "axios";
-import "./AISearch.css";
-
-function AISearch() {
-
-  const [question, setQuestion] = useState("");
-  const [answer, setAnswer] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const askAI = async () => {
-
-    if (!question.trim()) {
-      alert("Please enter your question.");
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-
-      const response = await axios.get(
-        `http://127.0.0.1:8000/ai-search?question=${encodeURIComponent(question)}`
-      );
-
-      setAnswer(response.data.answer);
-
-    } catch (error) {
-
-      console.log(error);
-      setAnswer("Something went wrong.");
-
-    }
-
-    setLoading(false);
-
-  };
-
-  return (
-
-    <div className="ai-search-page">
-
-      <h2>🤖 AI Semantic Search</h2>
-
-      <p className="subtitle">
-        Ask questions about your uploaded documents.
-      </p>
-
-      <div className="ai-search-box">
-
-        <input
-          type="text"
-          placeholder="Example: What skills does my resume contain?"
-          value={question}
-          onChange={(e) => setQuestion(e.target.value)}
-        />
-
-        <button onClick={askAI}>
-          Ask AI
-        </button>
-
-      </div>
-
-      {loading && (
-
-        <div className="loading">
-          Thinking...
-        </div>
-
-      )}
-
-      {answer && (
-
-        <div className="answer-card">
-
-          <h3>💡 AI Answer</h3>
-
-          <p>{answer}</p>
-
-        </div>
-
-      )}
-
-    </div>
-
-  );
-
+.ai-search-page{
+  padding:30px;
 }
 
-export default AISearch;
+.subtitle{
+  color:#666;
+  margin-bottom:20px;
+}
+
+.ai-search-box{
+  display:flex;
+  gap:10px;
+}
+
+.ai-search-box input{
+  flex:1;
+  padding:12px;
+  border:1px solid #ccc;
+  border-radius:8px;
+}
+
+.ai-search-box button{
+  padding:12px 20px;
+  border:none;
+  border-radius:8px;
+  background:#2563eb;
+  color:white;
+  cursor:pointer;
+}
+
+.loading{
+  margin-top:20px;
+}
+
+.answer-card{
+  margin-top:20px;
+  padding:20px;
+  border-radius:10px;
+  background:#f5f5f5;
+}
