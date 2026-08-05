@@ -61,6 +61,8 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:5173",
         "http://127.0.0.1:5173",
+
+        "https://memory-verse-ai-49l3.vercel.app",
         "https://memory-verse-ai-49l3-git-main-lavanya-62s-projects.vercel.app",
     ],
     allow_credentials=True,

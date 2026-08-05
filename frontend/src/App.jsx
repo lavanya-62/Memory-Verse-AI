@@ -6,7 +6,6 @@ import Documents from "./components/Documents";
 import Analysis from "./components/Analysis";
 import Search from "./components/Search";
 import AISearch from "./components/AISearch";
-
 import "./App.css";
 
 function App() {
