@@ -56,23 +56,17 @@ for model in client.models.list():
 
 
 app = FastAPI(title="MemoryVerse AI")
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "http://localhost:5174",
-        "http://localhost:5175",
         "http://127.0.0.1:5173",
-        "http://127.0.0.1:5174",
-        "http://127.0.0.1:5175",
-        "https://your-vercel-url.vercel.app",
+        "https://memory-verse-ai-49l3-git-main-lavanya-62s-projects.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
