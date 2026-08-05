@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../api";
 import { jsPDF } from "jspdf";
 
 function Documents() {
@@ -23,9 +23,7 @@ function Documents() {
 
       setLoading(true);
 
-      const response = await axios.get(
-        "http://127.0.0.1:8000/documents"
-      );
+      const response = await api.get("/documents");
 
       setDocuments(response.data);
 
@@ -49,9 +47,7 @@ function Documents() {
 
     try {
 
-      const response = await axios.get(
-        `http://127.0.0.1:8000/analyze/${id}`
-      );
+      const response = await api.get(`/analyze/${id}`);
 
       setSelectedDocument(response.data);
 
@@ -75,9 +71,7 @@ function Documents() {
 
     try {
 
-      await axios.delete(
-        `http://127.0.0.1:8000/documents/${id}`
-      );
+      await api.delete(`/documents/${id}`);
 
       await loadDocuments();
 

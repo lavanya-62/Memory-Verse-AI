@@ -1,8 +1,6 @@
 import { useState } from "react";
-import axios from "axios";
+import api from "../api";
 import "./Upload.css";
-
-const API = "http://127.0.0.1:8000";
 
 function Upload() {
   const [file, setFile] = useState(null);
@@ -24,8 +22,8 @@ function Upload() {
       setMessage("");
       setAnalysis(null);
 
-      const response = await axios.post(
-        `${API}/analyze`,
+      const response = await api.post(
+        "/analyze",
         formData,
         {
           headers: {
@@ -38,14 +36,11 @@ function Upload() {
       setAnalysis(response.data.analysis);
 
       console.log(response.data);
-
     } catch (err) {
       console.error(err);
 
       if (err.response) {
-        setMessage(
-          err.response.data.error || "Upload Failed!"
-        );
+        setMessage(err.response.data.error || "Upload Failed!");
       } else {
         setMessage("Server not responding.");
       }
@@ -79,20 +74,11 @@ function Upload() {
           <div className="analysis-result">
             <h3>Analysis Result</h3>
 
-            <p>
-              <b>Document Type:</b>{" "}
-              {analysis.document_type}
-            </p>
+            <p><b>Document Type:</b> {analysis.document_type}</p>
 
-            <p>
-              <b>Summary:</b>{" "}
-              {analysis.summary}
-            </p>
+            <p><b>Summary:</b> {analysis.summary}</p>
 
-            <p>
-              <b>Skills:</b>{" "}
-              {analysis.skills?.join(", ")}
-            </p>
+            <p><b>Skills:</b> {analysis.skills?.join(", ")}</p>
 
             <p>
               <b>Projects:</b>{" "}

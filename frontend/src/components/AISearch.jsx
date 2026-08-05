@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import api from "../api";
 import "./AISearch.css";
 
 function AISearch() {
@@ -19,8 +19,8 @@ function AISearch() {
 
     try {
 
-      const response = await axios.get(
-        `http://127.0.0.1:8000/ai-search?question=${encodeURIComponent(question)}`
+      const response = await api.get(
+        `/ai-search?question=${encodeURIComponent(question)}`
       );
 
       setAnswer(response.data.answer);
